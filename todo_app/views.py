@@ -17,7 +17,6 @@ def mark_as_done(request , pk):
     return redirect('home')
 
 # For undo button (make a button for undone )
-
 def undo(request, pk):
     task = get_object_or_404(Task,pk = pk)
     task.Is_completed = False
@@ -26,7 +25,6 @@ def undo(request, pk):
     return redirect('home')
 
 # For edit task 
-
 def edit(request , pk):
     get_task = get_object_or_404(Task ,pk = pk)
     if request.method == "POST":
@@ -41,9 +39,9 @@ def edit(request , pk):
 
         return render(request , 'edit.html' , context)
     
-# Delete Task
-    
+# Delete Task   
 def delete(request,pk):
     delet_task = get_object_or_404(Task ,pk =pk)
     delet_task.delete()
+
     return redirect('home')
